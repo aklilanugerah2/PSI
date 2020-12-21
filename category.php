@@ -11,7 +11,7 @@
 		$catid = $cat['id'];
 	}
 	catch(PDOException $e){
-		echo "There is some problem in connection: " . $e->getMessage();
+		echo "Terdapat masalah pada jaringan " . $e->getMessage();
 	}
 
 	$pdo->close();
@@ -51,7 +51,7 @@
 		       									<h5><a href='product.php?product=".$row['slug']."'>".$row['name']."</a></h5>
 		       								</div>
 		       								<div class='box-footer'>
-		       									<b>&#36; ".number_format($row['price'], 2)."</b>
+		       									<b>Rp. ".number_format($row['price'], 0)."</b>
 		       								</div>
 	       								</div>
 	       							</div>

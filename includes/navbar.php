@@ -2,7 +2,7 @@
   <nav class="navbar navbar-static-top">
     <div class="container">
       <div class="navbar-header">
-        <a href="index.php" class="navbar-brand"><b>Ecommerce</b>Site</a>
+        <a href="index.php" class="navbar-brand"><b>SI</b> Tani</a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
           <i class="fa fa-bars"></i>
         </button>
@@ -11,11 +11,11 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="index.php">HOME</a></li>
-          <li><a href="">ABOUT US</a></li>
-          <li><a href="">CONTACT US</a></li>
+          <li><a href="index.php">BERANDA</a></li>
+          <li><a href="">TENTANG KAMI</a></li>
+          <li><a href="">KONTAK KAMI</a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CATEGORY <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">KATEGORI <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <?php
              
@@ -59,12 +59,12 @@
               <span class="label label-success cart_count"></span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have <span class="cart_count"></span> item(s) in cart</li>
+              <li class="header">Kamu memiliki <span class="cart_count"></span> item di keranjang</li>
               <li>
                 <ul class="menu" id="cart_menu">
                 </ul>
               </li>
-              <li class="footer"><a href="cart_view.php">Go to Cart</a></li>
+              <li class="footer"><a href="cart_view.php">Cek keranjang</a></li>
             </ul>
           </li>
           <?php

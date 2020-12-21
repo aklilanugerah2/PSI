@@ -12,16 +12,16 @@
 	      <section class="content">
 	        <div class="row">
 	        	<div class="col-sm-9">
-	        		<h1 class="page-header">YOUR CART</h1>
+	        		<h1 class="page-header">KERANJANG ANDA</h1>
 	        		<div class="box box-solid">
 	        			<div class="box-body">
 		        		<table class="table table-bordered">
 		        			<thead>
 		        				<th></th>
-		        				<th>Photo</th>
-		        				<th>Name</th>
-		        				<th>Price</th>
-		        				<th width="20%">Quantity</th>
+		        				<th>Foto</th>
+		        				<th>Nama</th>
+		        				<th>Harga</th>
+		        				<th width="20%">Jumlah</th>
 		        				<th>Subtotal</th>
 		        			</thead>
 		        			<tbody id="tbody">
