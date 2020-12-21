@@ -13,6 +13,7 @@
 <script src="dist/js/adminlte.min.js"></script>
 <!-- CK Editor -->
 <script src="bower_components/ckeditor/ckeditor.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer> </script>
 <script>
   $(function () {
     // Datatable
