@@ -77,11 +77,10 @@
 				    //     //Recipients
 				    //     $mail->addAddress($email);              
 				    //     $mail->addReplyTo('testsourcecodester@gmail.com');
-				       
 				    //     //Content
 				    //     $mail->isHTML(true);                                  
 				    //     $mail->Subject = 'ecomm Sign Up';
-				    //     $mail->Body    = $message;
+				    //     $mail->Body    = $message; 13848c9305578d3e7e73d3a99fe2fa306f570f70
 
 				    //     $mail->send();
 
