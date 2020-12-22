@@ -99,13 +99,7 @@
 				    // }
 
 
-				}
-				catch(PDOException $e){
-					$_SESSION['error'] = $e->getMessage();
-					header('location: register.php');
-				}
 
-				$pdo->close();
 
 			}
 
