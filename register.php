@@ -1,6 +1,4 @@
 <?php
-	use PHPMailer\PHPMailer\PHPMailer;
-	use PHPMailer\PHPMailer\Exception;
 
 	include 'includes/session.php';
 
@@ -30,8 +28,8 @@
 				header('location: signup.php');
 			}
 			else{
-				$now = date('Y-m-d');
 				$password = password_hash($password, PASSWORD_DEFAULT);
+				$now = date('Y-m-d');
 
 				//generate code
 				$set='123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -51,54 +49,17 @@
 						<a href='http://localhost/ecommerce/activate.php?code=".$code."&user=".$userid."'>Activate Account</a>
 					";
 
-					//Load phpmailer
-		    		// require 'vendor/autoload.php';
-
-		    		// $mail = new PHPMailer(true);                             
-				    // try {
-				    //     //Server settings
-				    //     $mail->isSMTP();                                     
-				    //     $mail->Host = 'smtp.gmail.com';                      
-				    //     $mail->SMTPAuth = true;                               
-				    //     $mail->Username = 'testsourcecodester@gmail.com';     
-				    //     $mail->Password = 'mysourcepass';                    
-				    //     $mail->SMTPOptions = array(
-				    //         'ssl' => array(
-				    //         'verify_peer' => false,
-				    //         'verify_peer_name' => false,
-				    //         'allow_self_signed' => true
-				    //         )
-				    //     );                         
-				    //     $mail->SMTPSecure = 'ssl';                           
-				    //     $mail->Port = 465;                                   
-
-				    //     $mail->setFrom('testsourcecodester@gmail.com');
-				        
-				    //     //Recipients
-				    //     $mail->addAddress($email);              
-				    //     $mail->addReplyTo('testsourcecodester@gmail.com');
-				    //     //Content
-				    //     $mail->isHTML(true);                                  
-				    //     $mail->Subject = 'ecomm Sign Up';
-				    //     $mail->Body    = $message; 13848c9305578d3e7e73d3a99fe2fa306f570f70
-
-				    //     $mail->send();
-
-				    //     unset($_SESSION['firstname']);
-				    //     unset($_SESSION['lastname']);
-				    //     unset($_SESSION['email']);
-
-				    //     $_SESSION['success'] = 'Account created. Check your email to activate.';
-				    //     header('location: signup.php');
-
-				    // } 
-				    // catch (Exception $e) {
-				    //     $_SESSION['error'] = 'Message could not be sent. Mailer Error: '.$mail->ErrorInfo;
-				    //     header('location: signup.php');
-				    // }
+				        $_SESSION['success'] = 'Account created. please contact admin to activate account. <a href="https://wa.me/62895326362645"> here</a>';
+						header('location: signup.php');
 
 
+				}
+				catch(PDOException $e){
+					$_SESSION['error'] = $e->getMessage();
+					header('location: register.php');
+				}
 
+				$pdo->close();
 
 			}
 
