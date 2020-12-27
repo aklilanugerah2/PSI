@@ -49,7 +49,7 @@
 						<a href='http://localhost/ecommerce/activate.php?code=".$code."&user=".$userid."'>Activate Account</a>
 					";
 
-				        $_SESSION['success'] = 'Account created. please contact admin to activate account. <a href="https://wa.me/62895326362645"> here</a>';
+				        $_SESSION['success'] = 'Silahkan hubungi admin untuk verifikasi akun. <a href="https://wa.me/+6285235750808?text=Permisi%20admin%20tolong%20verifikasi%20akun%20saya"> Wa Admin</a>';
 						header('location: signup.php');
 
 

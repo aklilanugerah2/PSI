@@ -32,7 +32,7 @@
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li>Users</li>
-        <li class="active">Cart</li>
+        <li class="active">Keranjang</li>
       </ol>
     </section>
 
@@ -70,9 +70,9 @@
             <div class="box-body">
               <table id="example1" class="table table-bordered">
                 <thead>
-                  <th>Product Name</th>
-                  <th>Quantity</th>
-                  <th>Tools</th>
+                  <th>Nama Produk</th>
+                  <th>Jumlah</th>
+                  <th>Aksi</th>
                 </thead>
                 <tbody>
                   <?php

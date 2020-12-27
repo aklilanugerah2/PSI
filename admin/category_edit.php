@@ -8,7 +8,7 @@
 		try{
 			$stmt = $conn->prepare("UPDATE category SET name=:name WHERE id=:id");
 			$stmt->execute(['name'=>$name, 'id'=>$id]);
-			$_SESSION['success'] = 'Category updated successfully';
+			$_SESSION['success'] = 'Kategori berhasil diupdate';
 		}
 		catch(PDOException $e){
 			$_SESSION['error'] = $e->getMessage();

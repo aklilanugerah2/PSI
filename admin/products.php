@@ -19,12 +19,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Product List
+        List Produk
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li>Products</li>
-        <li class="active">Product List</li>
+        <li class="active">List Produk</li>
       </ol>
     </section>
 
@@ -56,13 +56,13 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat" id="addproduct"><i class="fa fa-plus"></i> New</a>
+              <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat" id="addproduct"><i class="fa fa-plus"></i> Tambah</a>
               <div class="pull-right">
                 <form class="form-inline">
                   <div class="form-group">
                     <label>Category: </label>
                     <select class="form-control input-sm" id="select_category">
-                      <option value="0">ALL</option>
+                      <option value="0">SEMUA</option>
                       <?php
                         $conn = $pdo->open();
 
@@ -86,12 +86,12 @@
             <div class="box-body">
               <table id="example1" class="table table-bordered">
                 <thead>
-                  <th>Name</th>
-                  <th>Photo</th>
-                  <th>Description</th>
-                  <th>Price</th>
-                  <th>Views Today</th>
-                  <th>Tools</th>
+                  <th>Nama</th>
+                  <th>Foto</th>
+                  <th>Deskripsi</th>
+                  <th>Harga</th>
+                  <th>Dilihat</th>
+                  <th>Aksi</th>
                 </thead>
                 <tbody>
                   <?php
