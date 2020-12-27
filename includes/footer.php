@@ -3,6 +3,6 @@
       <div class="pull-right hidden-xs">
         <b></b>
       </div>
-      <strong></a></strong>
+      <strong></a>SI-Tani </strong>
     </div>
 </footer>

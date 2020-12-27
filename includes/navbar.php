@@ -1,8 +1,8 @@
 <header class="main-header">
-  <nav class="navbar navbar-static-top">
+  <nav class="navbar navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <a href="index.php" class="navbar-brand"><b>SI</b> Tani</a>
+        <a href="index.php" class="navbar-brand"><b>SI-Tani</b></a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
           <i class="fa fa-bars"></i>
         </button>
@@ -41,7 +41,7 @@
         </ul>
         <form method="POST" class="navbar-form navbar-left" action="search.php">
           <div class="input-group">
-              <input type="text" class="form-control" id="navbar-search-input" name="keyword" placeholder="Search for Product" required>
+              <input type="text" class="form-control" id="navbar-search-input" name="keyword" placeholder="Cari Produk" required>
               <span class="input-group-btn" id="searchBtn" style="display:none;">
                   <button type="submit" class="btn btn-default btn-flat"><i class="fa fa-search"></i> </button>
               </span>
@@ -101,7 +101,7 @@
             else{
               echo "
                 <li><a href='login.php'>LOGIN</a></li>
-                <li><a href='signup.php'>SIGNUP</a></li>
+                <li><a href='signup.php'>SIGN-UP</a></li>
               ";
             }
           ?>
