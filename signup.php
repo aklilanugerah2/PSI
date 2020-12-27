@@ -43,18 +43,6 @@
         		<input type="email" class="form-control" name="email" placeholder="Email" value="<?php echo (isset($_SESSION['email'])) ? $_SESSION['email'] : '' ?>" required>
         		<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       		</div>
-
-          <div class="form-group has-feedback">
-        		<input type="text" class="form-control" name="Alamat" placeholder="Alamat" value="<?php echo (isset($_SESSION['addres'])) ? $_SESSION['addres'] : '' ?>" required>
-        		<span class="glyphicon glyphicon-road form-control-feedback"></span>
-      		</div>
-          
-
-          <div class="form-group has-feedback">
-        		<input type="text" class="form-control" name="No Hp" placeholder="No Hp" value="<?php echo (isset($_SESSION['	contact_info'])) ? $_SESSION['	contact_info'] : '' ?>" required>
-        		<span class="glyphicon glyphicon-signal form-control-feedback"></span>
-      		</div>
-
           <div class="form-group has-feedback">
             <input type="password" class="form-control" name="password" placeholder="Password" required>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
