@@ -9,7 +9,7 @@
 		try{
 			$stmt = $conn->prepare("UPDATE users SET status=:status WHERE id=:id");
 			$stmt->execute(['status'=>1, 'id'=>$id]);
-			$_SESSION['success'] = 'User berhasil diaktifkan';
+			$_SESSION['success'] = 'User berhasil diaktifkan;
 		}
 		catch(PDOException $e){
 			$_SESSION['error'] = $e->getMessage();
