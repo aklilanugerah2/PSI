@@ -1,23 +1,26 @@
 <?php
-	use PHPMailer\PHPMailer\PHPMailer;
-	use PHPMailer\PHPMailer\Exception;
 
 	include 'includes/session.php';
-
-	if(isset($_POST['signup'])){
+	// echo print_r($_POST);
+	// if(isset($_POST['firstname'])){
 		$firstname = $_POST['firstname'];
 		$lastname = $_POST['lastname'];
 		$email = $_POST['email'];
-		$addres = $_POST['addres'];
+		$address = $_POST['address'];
 		$contact_info = $_POST['contact_info'];
+		
 		$password = $_POST['password'];
 		$repassword = $_POST['repassword'];
 
 		$_SESSION['firstname'] = $firstname;
 		$_SESSION['lastname'] = $lastname;
 		$_SESSION['email'] = $email;
-		$_SESSION['addres'] = $addres;
 		$_SESSION['contact_info'] = $contact_info;
+
+
+		
+		
+		
 		if($password != $repassword){
 			$_SESSION['error'] = 'Passwords did not match';
 			header('location: signup.php');
@@ -33,16 +36,16 @@
 				header('location: signup.php');
 			}
 			else{
-				$now = date('Y-m-d');
 				$password = password_hash($password, PASSWORD_DEFAULT);
+				$now = date('Y-m-d');
 
 				//generate code
 				$set='123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 				$code=substr(str_shuffle($set), 0, 12);
 
 				try{
-					$stmt = $conn->prepare("INSERT INTO users (email, password, firstname, lastname, addres, contact_info, activate_code, created_on) VALUES (:email, :password, :firstname, :lastname,:addres,:contact_info, :code, :now)");
-					$stmt->execute(['email'=>$email, 'password'=>$password, 'firstname'=>$firstname, 'lastname'=>$lastname, 'code'=>$code, 'now'=>$now]);
+					$stmt = $conn->prepare("INSERT INTO users (contact_info,address,email, password, firstname, lastname, activate_code, created_on) VALUES (:contact_info,:address,:email, :password, :firstname, :lastname, :code, :now)");
+					$stmt->execute(['contact_info'=>$contact_info,'address'=>$address,'email'=>$email, 'password'=>$password, 'firstname'=>$firstname, 'lastname'=>$lastname, 'code'=>$code, 'now'=>$now]);
 					$userid = $conn->lastInsertId();
 
 					$message = "
@@ -54,63 +57,31 @@
 						<a href='http://localhost/ecommerce/activate.php?code=".$code."&user=".$userid."'>Activate Account</a>
 					";
 
-					//Load phpmailer
-		    		// require 'vendor/autoload.php';
-
-		    		// $mail = new PHPMailer(true);                             
-				    // try {
-				    //     //Server settings
-				    //     $mail->isSMTP();                                     
-				    //     $mail->Host = 'smtp.gmail.com';                      
-				    //     $mail->SMTPAuth = true;                               
-				    //     $mail->Username = 'testsourcecodester@gmail.com';     
-				    //     $mail->Password = 'mysourcepass';                    
-				    //     $mail->SMTPOptions = array(
-				    //         'ssl' => array(
-				    //         'verify_peer' => false,
-				    //         'verify_peer_name' => false,
-				    //         'allow_self_signed' => true
-				    //         )
-				    //     );                         
-				    //     $mail->SMTPSecure = 'ssl';                           
-				    //     $mail->Port = 465;                                   
-
-				    //     $mail->setFrom('testsourcecodester@gmail.com');
-				        
-				    //     //Recipients
-				    //     $mail->addAddress($email);              
-				    //     $mail->addReplyTo('testsourcecodester@gmail.com');
-				    //     //Content
-				    //     $mail->isHTML(true);                                  
-				    //     $mail->Subject = 'ecomm Sign Up';
-				    //     $mail->Body    = $message; 13848c9305578d3e7e73d3a99fe2fa306f570f70
-
-				    //     $mail->send();
-
-				    //     unset($_SESSION['firstname']);
-				    //     unset($_SESSION['lastname']);
-				    //     unset($_SESSION['email']);
-
-				    //     $_SESSION['success'] = 'Account created. Check your email to activate.';
-				    //     header('location: signup.php');
-
-				    // } 
-				    // catch (Exception $e) {
-				    //     $_SESSION['error'] = 'Message could not be sent. Mailer Error: '.$mail->ErrorInfo;
-				    //     header('location: signup.php');
-				    // }
+					$_SESSION['firstname'] = "";
+					$_SESSION['lastname'] = "";
+					$_SESSION['email'] = "";
+					$_SESSION['address'] = "";
+					$_SESSION['contact_info'] = "";
+				        $_SESSION['success'] = 'Silahkan hubungi admin untuk verifikasi akun. <a href="https://wa.me/+6285235750808?text=Permisi%20admin%20tolong%20verifikasi%20akun%20saya"> Wa Admin</a>';
+						header('location: signup.php');
 
 
+				}
+				catch(PDOException $e){
+					$_SESSION['error'] = $e->getMessage();
+					header('location: register.php');
+				}
 
+				$pdo->close();
 
 			}
 
 		}
 
-	}
-	else{
-		$_SESSION['error'] = 'Fill up signup form first';
-		header('location: signup.php');
-	}
+	// }
+	// else{
+	// 	$_SESSION['error'] = 'Fill up signup form first';
+	// 	header('location: signup.php');
+	// }
 
 ?>

@@ -28,7 +28,7 @@
 			try{
 				$stmt = $conn->prepare("INSERT INTO users (email, password, firstname, lastname, address, contact_info, photo, status, created_on) VALUES (:email, :password, :firstname, :lastname, :address, :contact, :photo, :status, :created_on)");
 				$stmt->execute(['email'=>$email, 'password'=>$password, 'firstname'=>$firstname, 'lastname'=>$lastname, 'address'=>$address, 'contact'=>$contact, 'photo'=>$filename, 'status'=>1, 'created_on'=>$now]);
-				$_SESSION['success'] = 'User added successfully';
+				$_SESSION['success'] = 'User terdaftar';
 
 			}
 			catch(PDOException $e){
