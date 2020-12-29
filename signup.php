@@ -49,18 +49,10 @@
             <span class="glyphicon glyphicon-road form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="text  class="form-control" name="contact_info" placeholder="No Hp/WA" value="<?php echo (isset($_SESSION['contact_info'])) ? $_SESSION['contact_info'] : '' ?>"  required>
+            <input type="text " class="form-control" name="contact_info" maxlength="2" onkeypress="return event.charCode >= 48 && event.charCode <=57" placeholder="No Hp/WA" value="<?php echo (isset($_SESSION['contact_info'])) ? $_SESSION['contact_info'] : '' ?>"  required>
             <span class="glyphicon glyphicon-signal form-control-feedback"></span>
           </div>
-          <script>
-		function hanyaAngka(evt) {
-		  var charCode = (evt.which) ? evt.which : event.keyCode
-		   if (charCode > 31 && (charCode < 48 || charCode > 57))
- 
-		    return false;
-		  return true;
-		}
-	</script>
+          
           <div class="form-group has-feedback">
             <input type="password" class="form-control" name="password" placeholder="Password" required>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
