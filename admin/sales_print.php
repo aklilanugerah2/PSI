@@ -20,6 +20,7 @@
 			<tr>
 				<td>'.date('M d, Y', strtotime($row['sales_date'])).'</td>
 				<td>'.$row['firstname'].' '.$row['lastname'].'</td>
+				<td>'.$row['address'].'</td>
 				<td>'.$row['pay_id'].'</td>
 				<td align="right">Rp. '.number_format($amount, 2).'</td>
 			</tr>
@@ -61,15 +62,16 @@
 	    $pdf->AddPage();  
 	    $content = '';  
 	    $content .= '
-	      	<h2 align="center">TechSoft IT Solutions</h2>
-	      	<h4 align="center">SALES REPORT</h4>
+	      	<h2 align="center">SI - TANI </h2>
+	      	<h4 align="center">Laporan Penjualan</h4>
 	      	<h4 align="center">'.$from_title." - ".$to_title.'</h4>
 	      	<table border="1" cellspacing="0" cellpadding="3">  
 	           <tr>  
-	           		<th width="15%" align="center"><b>Date</b></th>
-	                <th width="30%" align="center"><b>Buyer Name</b></th>
-					<th width="40%" align="center"><b>Transaction#</b></th>
-					<th width="15%" align="center"><b>Amount</b></th>  
+	           		<th width="15%" align="center"><b>Tanggal</b></th>
+					<th width="25%" align="center"><b>Nama </b></th>
+					<th width="20%" align="center"><b>Alamat</b></th>
+					<th width="34%" align="center"><b>Kode Transaksi</b></th>
+					<th width="15%" align="center"><b>Harga</b></th>  
 	           </tr>  
 	      ';  
 	    $content .= generateRow($from, $to, $conn);  
