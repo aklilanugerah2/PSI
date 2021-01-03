@@ -1,76 +1,84 @@
 <!-- jQuery 3 -->
-<script src="../bower_components/jquery/dist/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- Select2 -->
-<script src="../bower_components/select2/dist/js/select2.full.min.js"></script>
-<!-- Moment JS -->
-<script src="../bower_components/moment/moment.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- DataTables -->
-<script src="../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<!-- ChartJS -->
-<script src="../bower_components/chart.js/Chart.js"></script>
-<!-- daterangepicker -->
-<script src="../bower_components/moment/min/moment.min.js"></script>
-<script src="../bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-<!-- datepicker -->
-<script src="../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-<!-- bootstrap time picker -->
-<script src="../plugins/timepicker/bootstrap-timepicker.min.js"></script>
-<!-- Slimscroll -->
-<script src="../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
-<script src="../bower_components/fastclick/lib/fastclick.js"></script>
+<script src="bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
-<script src="../dist/js/adminlte.min.js"></script>
+<script src="dist/js/adminlte.min.js"></script>
 <!-- CK Editor -->
-<script src="../bower_components/ckeditor/ckeditor.js"></script>
-<!-- Active Script -->
-<script>
-$(function(){
-	/** add active class and stay opened when selected */
-	var url = window.location;
-  
-	// for sidebar menu entirely but not cover treeview
-	$('ul.sidebar-menu a').filter(function() {
-	    return this.href == url;
-	}).parent().addClass('active');
-
-	// for treeview
-	$('ul.treeview-menu a').filter(function() {
-	    return this.href == url;
-	}).parentsUntil(".sidebar-menu > .treeview-menu").addClass('active');
-
-});
-</script>
-<!-- Data Table Initialize -->
+<script src="bower_components/ckeditor/ckeditor.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer> </script>
 <script>
   $(function () {
-    $('#example1').DataTable({
-      responsive: true
-    })
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
-</script>
-<script>
-  $(function(){
-    //Initialize Select2 Elements
-    $('.select2').select2()
-
+    // Datatable
+    $('#example1').DataTable()
     //CK Editor
     CKEDITOR.replace('editor1')
-    CKEDITOR.replace('editor2')
   });
 </script>
+<!--Magnify -->
+<script src="magnify/magnify.min.js"></script>
+<script>
+$(function(){
+	$('.zoom').magnify();
+});
+</script>
+<!-- Custom Scripts -->
+<script>
+$(function(){
+  $('#navbar-search-input').focus(function(){
+    $('#searchBtn').show();
+  });
 
+  $('#navbar-search-input').focusout(function(){
+    $('#searchBtn').hide();
+  });
 
+  getCart();
+
+  $('#productForm').submit(function(e){
+  	e.preventDefault();
+  	var product = $(this).serialize();
+  	$.ajax({
+  		type: 'POST',
+  		url: 'cart_add.php',
+  		data: product,
+  		dataType: 'json',
+  		success: function(response){
+  			$('#callout').show();
+  			$('.message').html(response.message);
+  			if(response.error){
+  				$('#callout').removeClass('callout-success').addClass('callout-danger');
+  			}
+  			else{
+				$('#callout').removeClass('callout-danger').addClass('callout-success');
+				getCart();
+  			}
+  		}
+  	});
+  });
+
+  $(document).on('click', '.close', function(){
+  	$('#callout').hide();
+  });
+
+});
+
+function getCart(){
+	$.ajax({
+		type: 'POST',
+		url: 'cart_fetch.php',
+		dataType: 'json',
+		success: function(response){
+			$('#cart_menu').html(response.list);
+			$('.cart_count').html(response.count);
+		}
+	});
+}
+</script>
