@@ -49,7 +49,7 @@
             <span class="glyphicon glyphicon-road form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="text " class="form-control" name="contact_info" maxlength="2" onkeypress="return event.charCode >= 48 && event.charCode <=57" placeholder="No Hp/WA" value="<?php echo (isset($_SESSION['contact_info'])) ? $_SESSION['contact_info'] : '' ?>"  required>
+            <input type="text " class="form-control" name="contact_info" maxlength="12" onkeypress="return event.charCode >= 48 && event.charCode <=57" placeholder="No Hp/WA" value="<?php echo (isset($_SESSION['contact_info'])) ? $_SESSION['contact_info'] : '' ?>"  required>
             <span class="glyphicon glyphicon-signal form-control-feedback"></span>
           </div>
           

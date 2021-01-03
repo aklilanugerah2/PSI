@@ -62,7 +62,7 @@
 					$_SESSION['email'] = "";
 					$_SESSION['address'] = "";
 					$_SESSION['contact_info'] = "";
-				        $_SESSION['success'] = 'Silahkan hubungi admin untuk verifikasi akun. <a href="https://wa.me/+6285235750808?text=Permisi%20admin%20tolong%20verifikasi%20akun%20saya"> Wa Admin</a>';
+				        $_SESSION['success'] = 'Silahkan hubungi admin untuk verifikasi akun. <a href="https://wa.me/+6285894447811?text=Permisi%20admin%20tolong%20verifikasi%20akun%20saya"> Wa Admin</a>';
 						header('location: signup.php');
 
 

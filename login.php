@@ -1,7 +1,7 @@
 <?php include 'includes/session.php'; ?>
 <?php
   if(isset($_SESSION['user'])){
-    header('location: cart_view.php');
+    header('location: index.php');
   }
 ?>
 <?php include 'includes/header.php'; ?>
@@ -43,8 +43,6 @@
         		</div>
       		</div>
     	</form>
-      <br>
-      <a href="password_forgot.php">Lupa password</a><br>
       <br>
       <a href="signup.php" class="text-center">Buat Akun</a><br>
       <br>
